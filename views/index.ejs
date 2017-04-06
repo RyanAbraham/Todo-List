@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <div class="content">
+      Welcome to Todo List!
+    </div>
+
+    <form action="/add-todo" method="POST">
+      <input type="text" placeholder="Category" name="category">
+      <input type="text" placeholder="Todo" name="todo">
+      <button type="submit">Add Item</button>
+    </form>
+
+    <ul class="todos">
+      <% for(var i=0; i<todos.length; i++) {%>
+        <li class="todo">
+          <span><%= todos[i].category %></span>
+          <span> - <%= todos[i].todo %></span>
+        </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
+
+
