@@ -6,17 +6,18 @@
   </head>
 
   <body>
-    <div class="content">
+    <div class="title">
       Welcome to Todo List!
     </div>
 
+    <div class="todo">
     <form action="/add-todo" method="POST">
       <input type="text" placeholder="Category" name="category">
       <input type="text" placeholder="Todo" name="todo">
       <button type="submit">Add Item</button>
     </form>
 
-    <ul class="todos">
+    <ul class="todo-items">
       <% for(var i=0; i<todos.length; i++) {%>
         <li class="todo">
           <span><%= todos[i].category %></span>
@@ -24,7 +25,13 @@
         </li>
       <% } %>
     </ul>
+    <div>
+      <button id="change-priority">Change Priority</button>
+    </div>
+    <div>
+      <button id="complete-todo">Finish Task</button>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>
-
 
