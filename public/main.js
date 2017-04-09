@@ -1,3 +1,4 @@
+// Handles all requests sent by the server
 var priority = document.getElementById("change-priority");
 var complete = document.getElementById("complete-todo");
 
