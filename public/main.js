@@ -3,22 +3,16 @@ var complete = document.getElementById("complete-todo");
 
 // On click, change a todo to critical priority
 priority.addEventListener('click', () => {
-  console.log("click!");
   fetch('todos', {
     method: 'put',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      'category': 'CRITICAL',
-      'todo': 'Pay rent'
-    });
-  });
-  .then(res => {
-    if(res.ok) return res.json();
-  });
-  .then(data => {
-    console.log(data);
-    window.location.reload(data);
-  }
+      "category": "CRITICAL",
+      "todo": "Pay rent"
+    })
+  })
+    .then(res => res.json())
+    .catch(err => console.log(err));
 });
 
 // On click, delete the latest critical todo
@@ -27,14 +21,17 @@ complete.addEventListener('click', () => {
     method: 'delete',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      'category': 'CRITICAL'
+      "category": "CRITICAL"
+    })
+  })
+    .then(res => {
+      if(res.ok) {
+        return res;
+      } else {
+        throw Error(resp.statusText);
+      }
+    })
+    .then(data => {
+      console.log(data);
     });
-  });
-  .then(res => {
-    if(res.ok) return res.json();
-  });
-  then(data => {
-    console.log(data);
-    window.location.reload();
-  });
 });

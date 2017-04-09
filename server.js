@@ -44,7 +44,7 @@ app.post('/todos', (req, res) => {
 
 // Put request to modify an entry in the database
 app.put('/todos', (req, res) => {
-    db.collection('todos').findOneAndUpdate({name: 'Work'}, {
+    db.collection('todos').findOneAndUpdate({category: 'Work'}, {
       $set: {
         category: req.body.category,
         todo: req.body.todo
@@ -60,7 +60,7 @@ app.put('/todos', (req, res) => {
 
 // Delete request to delete an entry from the database
 app.delete('/todos', (req, res) => {
-  db.collections('todos').findOneAndDelete({
+  db.collection('todos').findOneAndDelete({
     category: req.body.category
   },
   (err, result) => {
