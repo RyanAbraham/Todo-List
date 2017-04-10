@@ -22,14 +22,12 @@
         <li class="todo">
           <span><%= todos[i].category %></span>
           <span> - <%= todos[i].todo %></span>
+          <button id="complete-todo<%= i %>">Done</button>
         </li>
       <% } %>
     </ul>
     <div>
       <button id="change-priority">Change Priority</button>
-    </div>
-    <div>
-      <button id="complete-todo">Finish Task</button>
     </div>
     <script src="main.js"></script>
   </body>
