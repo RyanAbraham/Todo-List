@@ -17,27 +17,29 @@ priority.addEventListener('click', () => {
 });
 
 // Add a listener to each button
-// TODO: change hardcoded number to number of todos
+// TODO: change hardcoded for loop to looping through each todo
 for(var i=0; i<4; i++) {
   // On click, finish and delete the todo
   let button = document.getElementById("complete-todo" + i);
-  button.addEventListener('click', () => {
-    fetch('todos', {
-      method: 'delete',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        "oid": button.getAttribute("oid")
+  if(button != null) {
+    button.addEventListener('click', () => {
+      fetch('todos', {
+        method: 'delete',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          "oid": button.getAttribute("oid")
+        })
       })
-    })
-    .then(res => {
-      if(res.ok) {
-        return res;
-      } else {
-        throw Error(res.statusText);
-      }
-    })
-    .then(data => {
-      console.log(data);
+      .then(res => {
+        if(res.ok) {
+          return res;
+        } else {
+          throw Error(res.statusText);
+        }
+      })
+      .then(data => {
+        console.log(data);
+      });
     });
-  });
+  }
 }
