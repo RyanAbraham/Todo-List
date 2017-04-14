@@ -20,9 +20,9 @@
     <ul class="todo-items">
       <% for(var i=0; i<todos.length; i++) {%>
         <li class="todo">
+          <button id="complete-todo<%= i %>" oid=<%=todos[i]._id%>>Done</button>
           <span><%= todos[i].category %></span>
           <span> - <%= todos[i].todo %></span>
-          <button id="complete-todo<%= i %>">Done</button>
         </li>
       <% } %>
     </ul>

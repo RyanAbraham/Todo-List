@@ -17,27 +17,27 @@ priority.addEventListener('click', () => {
 });
 
 // Add a listener to each button
-// TODO: remove hardcoded 30 to number of todos
-for(var i=0; i<10; i++) {
-  // On click, delete the latest critical todo
-  document.getElementById("complete-todo" + i)
-    .addEventListener('click', () => {
-      fetch('todos', {
-        method: 'delete',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          "category": "CRITICAL"
-        })
+// TODO: change hardcoded number to number of todos
+for(var i=0; i<4; i++) {
+  // On click, finish and delete the todo
+  let button = document.getElementById("complete-todo" + i);
+  button.addEventListener('click', () => {
+    fetch('todos', {
+      method: 'delete',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "oid": button.getAttribute("oid")
       })
-      .then(res => {
-        if(res.ok) {
-          return res;
-        } else {
-          throw Error(resp.statusText);
-        }
-      })
-      .then(data => {
-        console.log(data);
-      });
+    })
+    .then(res => {
+      if(res.ok) {
+        return res;
+      } else {
+        throw Error(res.statusText);
+      }
+    })
+    .then(data => {
+      console.log(data);
+    });
   });
 }

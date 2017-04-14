@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const dotenv = require('dotenv');
-
+const ObjectId = require('mongodb').ObjectID;
 const port = 3000;
 
 dotenv.config();
@@ -62,12 +62,13 @@ app.put('/todos', (req, res) => {
 
 // Delete request to delete an entry from the database
 app.delete('/todos', (req, res) => {
+  console.log(req.body);
   // Search for an entry by category and delete the first occurence
   db.collection('todos').findOneAndDelete({
-    category: req.body.category
+    _id: new ObjectId(req.body.oid)
   },
   (err, result) => {
-    if(err) return res.send(500, err);
+    if(err) return res.status(500).send(err);
     res.send('Removed a todo');
   });
 });
