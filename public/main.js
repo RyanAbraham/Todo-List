@@ -23,6 +23,7 @@ for(var i=0; i<4; i++) {
   let button = document.getElementById("complete-todo" + i);
   if(button != null) {
     button.addEventListener('click', () => {
+      document.getElementById("todo" + i).className += "done-todo";
       fetch('todos', {
         method: 'delete',
         headers: {'Content-Type': 'application/json'},

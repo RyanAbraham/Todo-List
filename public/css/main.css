@@ -1,0 +1,14 @@
+body {
+  margin: auto;
+  background: rgb(200,200,200);
+  text-align: center;
+}
+
+.todo-items {
+  list-style: none;
+}
+
+.done-todo {
+  color: grey;
+  text-decoration: line-through;
+}

@@ -62,7 +62,6 @@ app.put('/todos', (req, res) => {
 
 // Delete request to delete an entry from the database
 app.delete('/todos', (req, res) => {
-  console.log(req.body);
   // Search for an entry by category and delete the first occurence
   db.collection('todos').findOneAndDelete({
     _id: new ObjectId(req.body.oid)

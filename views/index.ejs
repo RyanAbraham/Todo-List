@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
+    <link rel='stylesheet' href='/css/main.css'>
   </head>
 
   <body>
     <div class="title">
-      Welcome to Todo List!
+      <h2>Welcome to Todo List!</h2>
     </div>
 
     <div class="todo">
@@ -20,9 +21,11 @@
     <ul class="todo-items">
       <% for(var i=0; i<todos.length; i++) {%>
         <li class="todo">
-          <button id="complete-todo<%= i %>" oid=<%=todos[i]._id%>>Done</button>
-          <span><%= todos[i].category %></span>
-          <span> - <%= todos[i].todo %></span>
+          <div id="todo<%= i %>">
+            <input id="complete-todo<%= i %>" type="checkbox" oid=<%=todos[i]._id%> />
+            <span><%= todos[i].category %></span>
+            <span> - <%= todos[i].todo %></span>
+          </div>
         </li>
       <% } %>
     </ul>
